@@ -63,11 +63,19 @@ module render_bracket_frame(bracket_thickness, bracket_depth, switch_height, swi
 
     difference() {
         union() {
-            move([-bracket_thickness,switch_depth - bracket_thickness,0]) cuboid([(484 - switch_width)/2,bracket_thickness,switch_height], fillet=2, edges=EDGES_Y_ALL, center=false);
+            // Front
+            move([-bracket_thickness,switch_depth - bracket_thickness,0]) cuboid([(484 - switch_width)/2,bracket_thickness,switch_height], chamfer=2, edges=EDGES_Y_ALL, center=false);
+            move([-bracket_thickness,switch_depth - bracket_thickness-4,0]) cuboid([((484 - switch_width)/2)-22,bracket_thickness,switch_height], chamfer=2, edges=EDGES_Y_ALL, center=false);
+            move([-bracket_thickness,switch_depth - bracket_thickness,14]) cuboid([((484 - switch_width)/2),bracket_thickness+4,16], chamfer=2, edges=EDGES_Y_ALL, center=false);
+
+            // Prism cross-brace
             move([6,switch_depth,switch_height/2]) xrot(90) prismoid(size1=[20,switch_height], size2=[0,switch_height], shift=[-10,0], h=20, center=false);
+
+            // Sides (to switch)
             move([30,switch_depth,switch_height/2]) xrot(90) prismoid(size1=[60,6], size2=[0,6], shift=[-30,0], h=60, center=false);
         }
 
+        // Rack mounting screw holes
         move([68,switch_depth-1,switch_height/2]) {
             hull() {
                 move([+2,0,+(31.75/2)]) ycyl(h=10, d=7.25, $fn=8);
