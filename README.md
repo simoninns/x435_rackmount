@@ -2,6 +2,10 @@
 ## Overview
 Rackmount ears for the Extreme X435-8P-4S switch
 
+<img src="/images/x435_bracket_front.jpg" width="800">
+
+<img src="/images/x435_bracket_back.jpg" width="800">
+
 ## Printing instructions
 The model has been printed and tested on the Prusa MK3S/MMU2S printer using Prusament PETG filament. All parts fit on a 20x20 printing bed.
 
